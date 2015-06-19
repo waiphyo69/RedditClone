@@ -1,0 +1,10 @@
+<h1><b>These are <%=@user.username%> 's subs<b></h1>
+<br>
+<br>
+<%@subs.each do |sub|%>
+<ul>
+  <li><%= link_to sub.title, sub_url(sub) %></li>
+  <% end %>
+</ul>
+<br>
+<%=link_to "Create a new sub",new_sub_url%>

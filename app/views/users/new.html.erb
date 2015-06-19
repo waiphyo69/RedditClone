@@ -1,0 +1,9 @@
+<h1> Please enter the details to sign up </h1>
+<%= render "shared/errors" %>
+<form action="<%=users_url%>" method="post">
+  <input type="text" name="user[username]" value="<%@user.username%>">
+  <br>
+  <br>
+  <input type="password" name="user[password]" value="<%@user.password%>">
+  <button>Submit!</button>
+</form>

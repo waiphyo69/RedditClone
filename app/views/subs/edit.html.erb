@@ -1,0 +1,15 @@
+<h1> Please edit the details for the sub</h1>
+<br>
+<br>
+<%= render "shared/errors" %>
+<form action="<%=subs_url%>" method="POST">
+  <label for="title">Title</label>
+  <input type="text" name="sub[title]" id="title">
+  <br>
+  <br>
+  <label for="description">Description</label>
+  <input type="text" name="sub[description]" id="description">
+  <br>
+  <br>
+  <button>Create!</button>
+</form>
