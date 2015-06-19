@@ -1,0 +1,12 @@
+<h1> Title  <%= @post.title %> </h1>
+<br>
+<%= render "shared/errors" %>
+<br>
+Content : <%= @post.content %>
+<br>
+Url : <%= @post.url %>
+<br>
+Written by <%= User.find(@post.author_id).username %>
+<br>
+Under Post <%= Sub.find(@post.sub_id).title %>
+<%=link_to "Edit this post",edit_post_url(@post.id)%>

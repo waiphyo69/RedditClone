@@ -1,5 +1,15 @@
 <h1><b><%=@sub.title%><b></h1>
 <br>
 <br>
+<%= render "shared/errors" %>
 Description: <%=@sub.description%>
 <%= link_to "Edit sub", edit_sub_url %>
+<br>
+<br>
+<br>
+<% @sub.posts.each do |post| %>
+<ul>
+  <li><%= link_to post.title, post_url(post) %> </li>
+  <% end %>
+</ul>
+<%= link_to "Create post", new_sub_post_url(@sub.id) %>

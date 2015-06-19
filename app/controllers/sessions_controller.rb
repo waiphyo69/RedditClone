@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       render :new
     else
       login(user)
-      redirect_to new_session_url
+      redirect_to subs_url
     end
   end
 

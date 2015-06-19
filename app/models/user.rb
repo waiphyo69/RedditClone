@@ -5,11 +5,15 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :subs, class_name: 'Sub', foreign_key: :moderator_id
+  has_many :posts, class_name: 'Post', foreign_key: :author_id 
 
   def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
-    return nil unless user && user.password_valid?(password)
-    user
+    user = User.find_by_username(username)
+    if user && user.password_valid?(password)
+      return user
+    else
+      return nil
+    end
   end
 
 

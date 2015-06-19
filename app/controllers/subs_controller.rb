@@ -1,8 +1,7 @@
 class SubsController < ApplicationController
-  before_action :require_moderator(@sub)
+  before_action :require_moderator, only: :edit
   def index
-    @user = current_user
-    @subs = current_user.subs.all
+    @subs = Sub.all
   end
 
   def new

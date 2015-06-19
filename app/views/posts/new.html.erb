@@ -1,0 +1,28 @@
+<h1>Enter all the details for the new post </h1>
+<br>
+<br>
+<%= render "shared/errors" %>
+<form action="<%=sub_posts_url(@sub.id)%>" method="POST">
+  <label for="title">Title</label>
+  <input type="text" name="post[title]" id="title">
+  <br>
+  <br>
+  <label for="content">Content</label>
+  <input type="content" name="post[content]" id="content">
+  <br>
+  <br>
+  <label for="url">Url</label>
+  <input type="text" name="post[url]" id="url">
+  <br>
+  <br>
+  <label for="post_subs" >Select subs you wish to post</label>
+        <% Sub.all.each do |sub| %>
+        <% if @post.sub_ids.include?(sub.id) %>
+        <input type="checkbox" name="post[sub_ids][]" id="<%= sub.id %>" value="<%= sub.id %>" checked>
+        <% else %>
+        <input type="checkbox" name="post[sub_ids][]" id="<%= sub.id %>" value="<%= sub.id %>">
+        <% end %>
+          <label for="<%= sub.id %>"><%= sub.title %></label>
+        <% end %>
+  <button>Create!</button>
+</form>
